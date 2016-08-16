@@ -15,3 +15,4 @@ sudo cp -r ./backups/.ssh ./volumes/go-server/var/go
 
 # these are the hardcoded ids for go's user and group in the container
 sudo chown -R 999:999 ./volumes/go-server
+sudo chown -R 999:999 ./volumes/go-server/var/go/.ssh

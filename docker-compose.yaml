@@ -11,6 +11,8 @@ services:
       - "./volumes/go-server/etc/go:/etc/go" # pipeline config
       - "./volumes/go-server/var/lib/go-server:/var/lib/go-server" # binaries and db
       - "./volumes/go-server/var/go:/var/go" # go user home
+
+      - "./volumes/go-server/var/lib/go-server/artifacts:/var/lib/go-server/artifacts"
       # - "./volumes/go-server/var/log/go-server:/var/log/go-server" # server logs
       # - "./volumes/go-server/go-addons:/go-addons"
     ports:

@@ -3,6 +3,7 @@ default:
 config:
 	mkdir -p ./volumes/go-server/var/lib/go-server
 	mkdir -p ./volumes/go-server/etc/go
+	mkdir -p ./volumes/go-server/var/go
 	sudo chown -R 999:999 ./volumes/go-server
 
 clean:

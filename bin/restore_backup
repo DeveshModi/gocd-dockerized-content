@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
 
 docker-compose up --d
 
@@ -9,6 +11,8 @@ sudo unzip -o ./backups/config-dir.zip -d ./volumes/go-server/etc/go
 
 sudo mkdir -p ./volumes/go-server/var/lib/go-server/db/config.git
 sudo unzip -o ./backups/config-repo.zip -d ./volumes/go-server/var/lib/go-server/db/config.git
+
+sudo cp -r ./backups/.ssh ./volumes/go-server/var/go
 
 # these are the hardcoded ids for go's user and group in the container
 sudo chown -R 999:999 ./volumes/go-server

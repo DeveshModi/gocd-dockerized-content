@@ -1,0 +1,14 @@
+#!/bin/bash
+
+docker-compose up --d
+
+sudo -v
+
+sudo unzip -o ./backups/db.zip -d ./volumes/go-server/var/lib/go-server/db/h2db
+sudo unzip -o ./backups/config-dir.zip -d ./volumes/go-server/etc/go
+
+sudo mkdir -p ./volumes/go-server/var/lib/go-server/db/config.git
+sudo unzip -o ./backups/config-repo.zip -d ./volumes/go-server/var/lib/go-server/db/config.git
+
+# these are the hardcoded ids for go's user and group in the container
+sudo chown -R 999:999 ./volumes/go-server

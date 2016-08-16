@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+
+  gocd_server:
+    image: "gocd/gocd-server"
+    volumes:
+      # /var/lib/go-server       #contains the binaries and database
+      # /etc/go                  #contains the pipeline configuration files
+      # /var/log/go-server       #contains the server logs
+      # /usr/share/go-server     #contains the start script
+      # /etc/default/go-server   #contains all the environment variables with default values. These variable values can be changed as per requirement.
+
+      # - "./volumes/go-server/var/lib/go-server/db/h2db:/var/lib/go-server/db/h2db"
+      - "./volumes/go-server/etc/go:/etc/go"
+      - "./volumes/go-server/var/lib/go-server:/var/lib/go-server"
+      # - "/go-server/var/log/go-server:/var/log/go-server"
+      # - "/go-server/var/go:/var/go"
+      # - "/go-server/go-addons:/go-addons"
+    ports:
+      - "8153:8153"
+      - "8154:8154"
+
+    #gocd_agent:
+    #image: "gocd/gocd-agent"
+
+

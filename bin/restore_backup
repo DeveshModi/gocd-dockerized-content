@@ -2,10 +2,11 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-docker-compose up --d
+docker-compose up -d
 
 sudo -v
 
+sudo mkdir -p ./volumes/go-server/var/lib/go-server/db/h2db
 sudo unzip -o ./backups/db.zip -d ./volumes/go-server/var/lib/go-server/db/h2db
 sudo unzip -o ./backups/config-dir.zip -d ./volumes/go-server/etc/go
 

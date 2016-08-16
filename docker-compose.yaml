@@ -19,7 +19,11 @@ services:
       - "8153:8153"
       - "8154:8154"
 
-    #gocd_agent:
-    #image: "gocd/gocd-agent"
+  gocd_agent:
+    image: "gocd/gocd-agent"
+    environment:
+      GO_SERVER: gocd_server
+    links:
+      - gocd_server
 
 

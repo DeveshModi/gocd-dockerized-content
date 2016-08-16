@@ -8,7 +8,7 @@ config:
 
 clean:
 	sudo -v
-	docker-compose down
+	docker-compose down || true
 	sudo rm -rf ./volumes
 
 restore_backup: clean config

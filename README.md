@@ -10,6 +10,7 @@ docker-compose up
 
 # Restoring a backup
 
+1. Do a dry run of gocd (i.e. `docker-compose up` has succeeded)
 1. Place the following backup files in `./backups`
    ```
    # these come from a go backup
@@ -20,5 +21,5 @@ docker-compose up
    # the ssh keys
    .ssh/
    ```
-2. run `./bin/restore_backup`
+1. run `./bin/restore_backup`
 

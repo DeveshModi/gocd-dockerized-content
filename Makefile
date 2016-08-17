@@ -8,9 +8,8 @@ default:
 	@echo "==> copying ssh folders to be added to containers"
 	sudo cp -r ./ssh/.ssh ./gocd-agent/
 	sudo cp -r ./ssh/.ssh ./gocd-server/
-	@echo "==> building containers"
-	docker build --no-cache ./gocd-agent
-	docker build --no-cache ./gocd-server
+	@echo "==> building images"
+	docker-compose build
 
 clean:
 	docker-compose down || true

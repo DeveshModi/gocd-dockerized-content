@@ -1,4 +1,6 @@
 default:
+	docker build --no-cache ./gocd-agent
+	docker build --no-cache ./gocd-server
 
 config:
 	@echo "==> creating volumes scaffold (to be mounted on containers)"

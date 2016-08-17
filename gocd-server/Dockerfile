@@ -1,7 +1,5 @@
 FROM gocd/gocd-server
 
-COPY .ssh/ /var/go/.ssh/
-
-RUN chown -R go:go /var/go
+COPY .ssh /var/go/.ssh
 
 CMD ["/sbin/my_init"]

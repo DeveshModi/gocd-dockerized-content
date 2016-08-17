@@ -9,7 +9,7 @@ default:
 	sudo cp -r ./ssh/.ssh ./gocd-agent/
 	sudo cp -r ./ssh/.ssh ./gocd-server/
 	@echo "==> building images"
-	docker-compose build
+	docker-compose build --no-cache
 
 clean:
 	docker-compose down || true

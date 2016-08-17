@@ -6,7 +6,6 @@ To get a clean `go-server` box:
 2. Start it up
    ```bash
    make clean # (optional, to start fresh if you ran this previously)
-   make config
    make
    docker-compose up
    ```

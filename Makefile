@@ -15,3 +15,5 @@ clean:
 	docker-compose down || true
 	sudo -v
 	sudo rm -rf ./volumes
+	sudo rm -rf ./gocd-agent/.ssh
+	sudo rm -rf ./gocd-server/.ssh

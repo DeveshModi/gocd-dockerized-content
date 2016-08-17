@@ -23,7 +23,7 @@ RUN pacman -S --noconfirm \
   unzip go-agent.zip && \
   mv go-agent-* go-agent
 
-ADD .ssh /var/go
+ADD .ssh/ /var/go/.ssh
 RUN groupadd -f go && \
   useradd -d /var/go -g go go && \
   chown -R go:go /var/go

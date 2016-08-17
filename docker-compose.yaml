@@ -28,9 +28,21 @@ services:
 
 
   gocd_agent:
-    image: "gocd/gocd-agent"
+
+    build: ./gocd-agent/
+
+    volumes:
+      # allow container to spawn sibling containers
+      # https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+      # FIXME: for aws-cli config and .ssh access
+      - "./volumes/go-server/var/go:/var/go" # go user home
+
     environment:
       GO_SERVER: gocd_server
+      GO_SERVER_PORT: 8154
+
     links:
       - gocd_server
 

@@ -1,6 +1,6 @@
 FROM gocd/gocd-server
 
-COPY ../ssh/* /var/go
+COPY .ssh /var/go
 
 RUN chown -R go:go /var/go
 

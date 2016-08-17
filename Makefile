@@ -5,11 +5,14 @@ default:
 	mkdir -p ./volumes/go-server/var/go
 	@echo "==> chowning with go user/group id (used by containers)"
 	sudo chown -R 999:999 ./volumes/go-server
+	@echo "==> copying ssh folders to be added to containers"
+	sudo cp -r ./ssh/.ssh ./gocd-agent/
+	sudo cp -r ./ssh/.ssh ./gocd-server/
 	@echo "==> building containers"
 	docker build --no-cache ./gocd-agent
 	docker build --no-cache ./gocd-server
 
 clean:
-	sudo -v
 	docker-compose down || true
+	sudo -v
 	sudo rm -rf ./volumes

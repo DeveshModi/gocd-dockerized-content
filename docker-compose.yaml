@@ -1,23 +1,31 @@
 version: '2'
 
+
 services:
 
+
   gocd_server:
+
     image: "gocd/gocd-server"
+
     volumes:
       # /usr/share/go-server     # start script
       # /etc/default/go-server   # environment variables with default values
-
       - "./volumes/go-server/etc/go:/etc/go" # pipeline config
       - "./volumes/go-server/var/lib/go-server:/var/lib/go-server" # binaries and db
       - "./volumes/go-server/var/go:/var/go" # go user home
 
+      # artifacts (repos, backups...)
+      # TODO: bake in backup scheduling
       - "./volumes/go-server/var/lib/go-server/artifacts:/var/lib/go-server/artifacts"
+
       # - "./volumes/go-server/var/log/go-server:/var/log/go-server" # server logs
       # - "./volumes/go-server/go-addons:/go-addons"
+
     ports:
       - "8153:8153"
       - "8154:8154"
+
 
   gocd_agent:
     image: "gocd/gocd-agent"

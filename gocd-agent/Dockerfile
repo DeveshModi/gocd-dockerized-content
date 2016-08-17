@@ -16,6 +16,13 @@ RUN wget --output-document go-agent.zip https://download.go.cd/binaries/16.7.0-3
 RUN unzip go-agent.zip
 RUN mv go-agent-* go-agent
 
+# FIXME: mega hack to match userid with gocd-server
+# free up id 999
+RUN usermod -u 1001 $(getent passwd | awk -F: '$3 == 999 { print $1 }')
+RUN groupmod -g 1001 $(getent passwd | awk -F: '$4 == 999 { print $1 }')
+# add go user with id = 999 (same as gocd-server image)
+RUN groupadd -f -g 999 go && \
+  useradd -d /var/go -u 999 -g go go
 
 ### CUT HERE vvvvvvvvvvvvvvvvvvvvvvvvvvv
 # "Provision" the box with everything we need to run the jerbs
@@ -28,5 +35,5 @@ RUN pacman -S --needed --noconfirm \
 RUN systemctl enable docker.service
 ### CUT HERE ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
+USER go
 CMD ["./go-agent/agent.sh"]

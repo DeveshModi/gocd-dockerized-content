@@ -6,8 +6,8 @@ default:
 	@echo "==> chowning with go user/group id (used by containers)"
 	sudo chown -R 999:999 ./volumes/go-server
 	@echo "==> copying ssh folders to be added to containers"
-	sudo cp -r ./ssh/.ssh ./gocd-agent/
-	sudo cp -r ./ssh/.ssh ./gocd-server/
+	sudo cp -r --preserve=all ./ssh/.ssh ./gocd-agent/
+	sudo cp -r --preserve=all ./ssh/.ssh ./gocd-server/
 	@echo "==> building images"
 	docker-compose build --no-cache
 

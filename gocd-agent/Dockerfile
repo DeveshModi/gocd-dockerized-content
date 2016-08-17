@@ -24,9 +24,9 @@ RUN pacman -S --noconfirm \
   mv go-agent-* go-agent
 
 ADD .ssh /var/go
-RUN chown -R go:go /var/go && \
-  groupadd -f go && \
-  useradd -d /var/go -g go go
+RUN groupadd -f go && \
+  useradd -d /var/go -g go go && \
+  chown -R go:go /var/go
 USER go
 
 CMD ["./go-agent/agent.sh"]

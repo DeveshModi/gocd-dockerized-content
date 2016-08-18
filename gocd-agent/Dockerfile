@@ -22,6 +22,7 @@ RUN pacman -S --noconfirm \
   unzip wget openssh git jdk8-openjdk && \
   wget --output-document go-agent.zip https://download.go.cd/binaries/16.7.0-3819/generic/go-agent-16.7.0-3819.zip && \
   unzip go-agent.zip && \
+  rm go-agent.zip && \
   mv go-agent-* go-agent
 
 ADD ssh/.ssh /var/go/.ssh

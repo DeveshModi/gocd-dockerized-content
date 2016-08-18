@@ -9,9 +9,8 @@ RUN pacman -Syy --noconfirm && \
 RUN pacman -S --needed --noconfirm \
   maven \
   sbt scala \
-  aws-cli && \
-
-  pacman -S --needed --noconfirm \
+  aws-cli \
+  npm nodejs \
   docker docker-compose && \
   systemctl enable docker.service
 ### CUT HERE ^^^^^^^^^^^^^^^^^^^^^^^^^^^

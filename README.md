@@ -1,12 +1,14 @@
 # Running
 
 To get a clean `go-server` box:
-1. put the ssh keys (used by git) in `./ssh/.ssh`
 
-2. Start it up
-   ```bash
+1. put the ssh keys (used by git) in `./ssh/.ssh`
+1. Start it up
+   ```
    make clean # (optional, to start fresh if you ran this previously)
+
    make
+   
    docker-compose up
    ```
 
@@ -16,9 +18,11 @@ To get a clean `go-server` box:
 1. Place the following backup files in `./backups`
    ```
    # these come from a go backup
+
    config-dir.zip
+
    config-repo.zip
+
    db.zip
    ```
 1. run `./bin/restore_backup`
-

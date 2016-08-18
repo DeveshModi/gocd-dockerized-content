@@ -30,7 +30,8 @@ ADD ssh/.ssh /var/go/.ssh
 RUN groupadd -f go && \
   useradd -d /var/go -g go go && \
   chown -R go:go /var/go && \
-  chown -R go:go /var/go/.ssh
+  chown -R go:go /var/go/.ssh && \
+  gpasswd -a go docker
 USER go
 
 CMD ["./go-agent/agent.sh"]

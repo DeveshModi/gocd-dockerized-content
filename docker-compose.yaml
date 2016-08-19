@@ -34,7 +34,7 @@ services:
       # allow container to spawn sibling containers
       # https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "./volumes/go-agent/var/go" # go user home
+      - "./volumes/go-agent/var/go:/var/go" # go user home
 
     environment:
       GO_SERVER: gocd_server

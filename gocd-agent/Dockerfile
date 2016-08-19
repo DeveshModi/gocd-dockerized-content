@@ -12,7 +12,7 @@ RUN pacman -S --needed --noconfirm \
   aws-cli \
   npm nodejs \
   docker docker-compose && \
-  systemctl enable docker.service
+  systemctl enable --now docker.service
 ### CUT HERE ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 # Install gocd-agent

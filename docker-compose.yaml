@@ -11,9 +11,9 @@ services:
     volumes:
       # /usr/share/go-server     # start script
       # /etc/default/go-server   # environment variables with default values
-      # /var/go                  # go user home
       - "./volumes/go-server/etc/go:/etc/go" # pipeline config
       - "./volumes/go-server/var/lib/go-server:/var/lib/go-server" # binaries and db
+      - "./volumes/go-server/var/go:/var/go" # go user home
 
       # artifacts (repos, backups...)
       # TODO: bake in backup scheduling
@@ -34,6 +34,7 @@ services:
       # allow container to spawn sibling containers
       # https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
       - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./volumes/go-agent/var/go" # go user home
 
     environment:
       GO_SERVER: gocd_server
